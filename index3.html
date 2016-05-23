@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="jquery-1.11.3.min.js"></script>
+<script src="jquery-ui.js"></script>
+    
+    
+<style type="text/css">
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+}
+	/* flip the pane when hovered */
+.flip-container:visited .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+	height: 590px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.8s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    background-color: pink;
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    background-color: yellow;
+	transform: rotateY(180deg);
+} 
+        
+button {
+    background-color: white;
+    border: 3px solid black;
+    width:auto;
+    height:30px;
+    cursor: pointer;
+}
+        
+button:hover {
+    background-color: black;
+    border: 3px solid white;
+    width:auto;
+    height:30px;
+    color:white;
+    cursor: pointer;
+}
+
+.about {
+    position: absolute;
+    right:10px;
+    top:10px;
+}
+        
+.x {
+    position: absolute;
+    right:10px;
+    top:10px;
+    display: none;
+}
+        
+body {
+    font-family: arial;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+    
+.col {
+    width:79%;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2; 
+    height:590px;
+    padding-left:10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+        
+img {
+    width:100%;
+    padding-top: 10px;
+}
+
+p {
+
+}
+    
+h2 {
+    font-family: arial;
+    font-weight: 400;
+    font-size: 25px;
+    font-style: italic;
+    text-align: center;
+    background-color: white;
+    border: 5px solid black;
+    width:85%;
+    margin: auto;
+}
+    
+.menu {
+    position: absolute;
+    background-color: white;
+    width:20%;
+    height:590px;
+    margin-left:80%;
+    z-index: 3;
+}
+
+.contenu {
+    width:90%;
+    right:10px;
+    position: fixed;
+    background-color: black;
+    z-index: 4;
+}
+        
+</style> 
+
+<script type="text/x-javascript">
+    
+    function test() {
+        document.querySelector('#myCard').classList.toggle('hover');
+        var close = document.getElementById('about').className;
+        if (close == "about") {
+            document.getElementById('about').className="x";
+            document.getElementById('about').style.display="none";
+            document.getElementById('x').style.display="block";
+        } else {
+            document.getElementById('about').className="about";
+            document.getElementById('x').style.display="none";
+            document.getElementById('about').style.display="block";
+        }
+    }  
+    
+    $(function() {
+    $( "img" ).draggable();
+    });
+    
+</script>
+
+</head>
+
+<body>
+<div class="flip-container" id="myCard">
+	<div class="flipper">
+		<div class="front" id="front">
+			<!-- front content -->
+            <div class="menu">
+                <div class="contenu">
+                </div>
+            </div>
+            <div class="col">
+                <img src="bureau.jpg">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare accumsan sapien in pharetra. Fusce id dolor dui. Mauris et dolor dolor. Fusce metus leo, feugiat a est in, sollicitudin vestibulum nibh. Quisque quis volutpat tellus, quis porta neque. Nam vitae odio lacinia, placerat diam ut, aliquet elit. Cras lacus purus, tincidunt ut hendrerit nec, placerat sit amet quam. Vivamus scelerisque sagittis libero. Nullam non ipsum scelerisque, aliquam dui ut, pulvinar turpis. Sed tellus tortor, congue ut hendrerit id, egestas at turpis.
+
+Proin nec tellus vel orci cursus elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed tempus urna, at faucibus enim. Donec commodo dui sed nulla dignissim rutrum. Vivamus eget mi quis mauris blandit mollis id at ipsum. Aenean dapibus sit amet nibh ut consequat. Nunc id iaculis est. In eu aliquet erat. <h2>Nullam euismod posuere bibendum. Quisque vitae turpis id dolor fermentum aliquet. Cras pharetra diam et sem pharetra, in fermentum sapien bibendum.</h2> Quisque at augue vel sapien aliquet commodo. Aenean euismod id quam a venenatis. Phasellus dignissim eu justo consequat fringilla. Donec iaculis semper ante sed aliquet.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare accumsan sapien in pharetra. Fusce id dolor dui. Mauris et dolor dolor. Fusce metus leo, feugiat a est in, sollicitudin vestibulum nibh. Quisque quis volutpat tellus, quis porta neque. Nam vitae odio lacinia, placerat diam ut, aliquet elit. Cras lacus purus, tincidunt ut hendrerit nec, placerat sit amet quam. Vivamus scelerisque sagittis libero. Nullam non ipsum scelerisque, aliquam dui ut, pulvinar turpis. Sed tellus tortor, congue ut hendrerit id, egestas at turpis.
+
+Proin nec tellus vel orci cursus elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed tempus urna, at faucibus enim. Donec commodo dui sed nulla dignissim rutrum. Vivamus eget mi quis mauris blandit mollis id at ipsum. Aenean dapibus sit amet nibh ut consequat. Nunc id iaculis est. In eu aliquet erat. Nullam euismod posuere bibendum. Quisque vitae turpis id dolor fermentum aliquet. Cras pharetra diam et sem pharetra, in fermentum sapien bibendum. Quisque at augue vel sapien aliquet commodo. Aenean euismod id quam a venenatis. Phasellus dignissim eu justo consequat fringilla. Donec iaculis semper ante sed aliquet.</p>
+            </div>
+		</div>
+		<div class="back" id="back">
+			<!-- back content -->
+            ABOUT
+		</div>
+	</div>
+</div>
+<div id="about" class="about">
+<button id="about" onclick=" test()">
+about
+</button>
+</div>
+<div id="x" class="x">
+<button id="x" onclick=" test()">
+X
+</button>
+</div>
+</body>
+</html>

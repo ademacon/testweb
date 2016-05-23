@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <style type="text/css">
+        
+        body {
+            font-family: courier;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            height: auto;
+            margin: 0;
+        }
+        
+        a{
+            color: black;
+            text-decoration: none;
+            border:solid black 3px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        
+        .titre{
+            left:5px;
+            margin-top:10px;
+            width:330px;
+            padding-bottom: 10px;
+            border-bottom: solid black 3px;
+        }
+        
+        .articles{
+            margin-top: 50px;
+            border-right: solid black 3px;
+            width:350px;
+        }
+        
+        button{
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border:solid black 3px;
+            padding-left: 3px;
+            padding-right: 3px;
+            margin-top: 10px;
+            font-family: courier;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        button:first-child{
+            margin:0;
+        }
+        
+        img{
+            width:200px;
+            height: auto;
+        }
+        
+        #image{
+            position: fixed;
+            margin-left: 370px;
+        }
+        
+        #bureau, #camo{
+            display: none;
+        }
+
+    </style>  
+    
+    <script>
+    function truc() {
+        var couleur = document.getElementById('bureau').className;
+        if (couleur == "bureau") {
+            document.getElementById('bureau').className="camo";
+            document.getElementById('bureau').style.display="none";
+            document.getElementById('camo').style.display="block";
+        } else {
+            document.getElementById('bureau').className="bureau";
+            document.getElementById('camo').style.display="none";
+            document.getElementById('bureau').style.display="block";
+        }
+    }
+</script>
+</head>
+    
+    <body>
+        <div class="titre">       
+            <h2><a href="test.html">Antoine Demacon</a><br>11 rue Saint-Fiacre<br>Cambrai 59400<br>T:06.51.08.59.40<br>E:<a href="mailto:hello@antoinedemacon.fr">hello@antoinedemacon.fr</a><br>Étudiant en 2e année de<br>Master à l'École Supèrieure<br>d'Art de Cambrai </h2>
+        </div> 
+        
+        <div id="image">
+            <img id="bureau" src="bureau.jpg">
+            <img id="camo" src="camou.jpg">
+        </div>
+        
+        <div class="articles">
+            <button onclick="truc()"><h2>— Camouflage</h2></button>
+            <br>
+            <button onclick="truc()"><h2>— Bureau</h2></button>
+        </div>
+        
+    </body>
+    
+</html>    

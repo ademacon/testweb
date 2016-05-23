@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<!---->
+<style type="text/css">
+    
+    .divA {
+        background-color: pink;
+        width:100%;
+        height:100%;
+        position: absolute;
+    }
+    
+    .divB {
+        background-color: yellow;
+        width:100%;
+        height:100%;
+        display: none;
+        position: absolute;
+    }
+
+
+</style>
+    
+<!---->
+    
+<script>
+    function truc() {
+        var couleur = document.getElementById('divA').className;
+        if (couleur == "divA") {
+            document.getElementById('divA').className="divB";
+            document.getElementById('divA').style.display="none";
+            document.getElementById('divB').style.display="block";
+        } else {
+            document.getElementById('divA').className="divA";
+            document.getElementById('divB').style.display="none";
+            document.getElementById('divA').style.display="block";
+        }
+    }
+</script>
+    
+<!---->
+    
+</head>
+<body>  
+<div class="container">
+    
+    <div class="divA" id="divA">
+            <p>DEVANT</p>
+        <button onclick="truc()">
+        test
+        </button>   
+    </div>
+    
+    <div class="divB" id="divB">
+            <p>DERRIÈRE</p>
+        <button onclick="truc()">
+        test
+        </button>
+    </div>
+    
+</div>
+    
+</body>
+</html>
